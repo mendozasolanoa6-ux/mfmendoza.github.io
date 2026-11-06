@@ -1,0 +1,1531 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>M F Miriam Fashionista | Tienda de ropa</title>
+
+<style>
+
+/* =================================
+   CONFIGURACION GENERAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff9fb;
+    color: #292029;
+}
+
+:root {
+    --rosa: #d66a96;
+    --rosa-claro: #f9dce8;
+    --rosa-oscuro: #9b4169;
+    --negro: #211820;
+    --dorado: #c5a46d;
+    --blanco: #ffffff;
+}
+
+/* =================================
+   ENCABEZADO
+================================= */
+
+header {
+    background: var(--negro);
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    color: #f4c5d8;
+    font-size: 34px;
+    letter-spacing: 4px;
+}
+
+header p {
+    margin-top: 8px;
+    color: #e8d4dc;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+/* =================================
+   MENU
+================================= */
+
+nav {
+    background: #33232e;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    padding: 17px 22px;
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+
+nav ul li a:hover {
+    background: var(--rosa);
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background: #33232e;
+    min-width: 180px;
+    flex-direction: column;
+}
+
+nav ul li:hover ul,
+nav ul li:focus-within ul {
+    display: flex;
+}
+
+/* =================================
+   PORTADA
+================================= */
+
+.inicio {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+
+    background:
+    linear-gradient(rgba(20,10,18,.55),
+    rgba(20,10,18,.55)),
+    url("https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600");
+
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.contenido-inicio {
+    max-width: 750px;
+}
+
+.contenido-inicio span {
+    color: #ffd0e2;
+    letter-spacing: 4px;
+}
+
+.contenido-inicio h2 {
+    font-size: 46px;
+    margin: 20px 0;
+}
+
+.contenido-inicio p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.boton {
+    display: inline-block;
+    background: var(--rosa);
+    color: white;
+    padding: 15px 30px;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: var(--dorado);
+    transform: translateY(-4px);
+}
+
+/* =================================
+   BENEFICIOS
+================================= */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding: 30px 15px;
+    background: white;
+    text-align: center;
+}
+
+.beneficio h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 8px;
+}
+
+.beneficio p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* =================================
+   TITULOS
+================================= */
+
+.titulo {
+    text-align: center;
+    padding: 60px 15px 30px;
+}
+
+.titulo span {
+    color: var(--rosa);
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.titulo h2 {
+    font-size: 33px;
+    color: var(--negro);
+    margin-top: 12px;
+}
+
+/* =================================
+   CATALOGO
+================================= */
+
+.productos {
+    padding: 20px 25px 70px;
+}
+
+.filtros {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.filtros button {
+    padding: 11px 23px;
+    margin: 5px;
+    border: 1px solid var(--rosa);
+    border-radius: 25px;
+    background: white;
+    color: var(--rosa-oscuro);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.filtros button:hover,
+.filtros button.activo {
+    background: var(--rosa);
+    color: white;
+}
+
+.galeria {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.producto {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.producto:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(214,106,150,.2);
+}
+
+.producto img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.producto-info h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 10px;
+}
+
+.producto-info p {
+    color: #777;
+    font-size: 14px;
+}
+
+.precio {
+    display: block;
+    color: #a47c3f;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.btn-agregar {
+    width: 100%;
+    padding: 12px;
+    background: var(--negro);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.btn-agregar:hover {
+    background: var(--rosa);
+}
+
+/* =================================
+   CARRITO DE COMPRAS
+================================= */
+
+.carrito {
+    background: linear-gradient(135deg,#fff0f6,#f8d5e4);
+    padding: 70px 20px;
+}
+
+.carrito-contenedor {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(100,30,65,.13);
+}
+
+.carrito h2 {
+    text-align: center;
+    color: #802c55;
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: 35px 10px;
+    color: #999;
+}
+
+.carrito-vacio .icono {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.item-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid #f0dce5;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    color: #843553;
+    font-size: 16px;
+}
+
+.item-info p {
+    color: #a47c3f;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: var(--rosa-claro);
+    color: #853353;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cantidad button:hover {
+    background: var(--rosa);
+    color: white;
+}
+
+.btn-eliminar {
+    background: #ffe5e5;
+    color: #c03939;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.resumen {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #f0dce5;
+}
+
+.resumen p {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    color: #555;
+}
+
+.resumen .total {
+    color: #843553;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.acciones-carrito {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-vaciar,
+.btn-whatsapp {
+    flex: 1;
+    min-width: 180px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-vaciar {
+    background: #eee;
+    color: #555;
+}
+
+.btn-vaciar:hover {
+    background: #ddd;
+}
+
+.btn-whatsapp {
+    background: #219b58;
+    color: white;
+}
+
+.btn-whatsapp:hover {
+    background: #147b42;
+    transform: translateY(-3px);
+}
+
+/* =================================
+   NOSOTROS
+================================= */
+
+.nosotros {
+    padding: 70px 20px;
+    text-align: center;
+    background: #f9e7ef;
+}
+
+.nosotros h2 {
+    color: #923c65;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.nosotros p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.9;
+    color: #68485a;
+}
+
+/* =================================
+   FORMULARIO
+================================= */
+
+.contacto {
+    padding: 75px 20px;
+    background: linear-gradient(135deg,#fff0f6,#f4c9dc);
+}
+
+.contacto-titulo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.contacto-titulo h2 {
+    color: #642344;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+#miFormulario {
+    max-width: 500px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(100,30,65,.17);
+    border-top: 7px solid var(--rosa);
+}
+
+.form-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.circulo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#e88db3,#8e315c);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.form-logo h3 {
+    color: #8e315c;
+    margin-top: 15px;
+}
+
+.form-logo p {
+    color: #999;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    color: #71334f;
+    margin-bottom: 9px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f0d5e1;
+    border-radius: 11px;
+    outline: none;
+    background: #fffafd;
+    transition: .3s;
+}
+
+.campo input:focus {
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 4px rgba(214,106,150,.13);
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#e88db3,#8e315c);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    opacity: .85;
+}
+
+.privacidad {
+    text-align: center;
+    margin-top: 20px;
+    color: #b65b83;
+    font-size: 13px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    background: var(--negro);
+    color: white;
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+footer h2 {
+    color: #f3bcd3;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin: 10px;
+    color: #ddd;
+}
+
+.creditos {
+    border-top: 1px solid #59434f;
+    padding-top: 20px;
+    margin-top: 25px;
+    color: #f3bcd3;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media(max-width:768px) {
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li ul {
+        position: static;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .contenido-inicio h2 {
+        font-size: 32px;
+    }
+}
+
+@media(max-width:480px) {
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .carrito-contenedor {
+        padding: 18px;
+    }
+
+    .item-carrito {
+        flex-wrap: wrap;
+    }
+
+    #miFormulario {
+        padding: 25px 18px;
+    }
+
+    .acciones-carrito {
+        flex-direction: column;
+    }
+
+    .contenido-inicio h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =================================
+     ENCABEZADO
+================================= -->
+
+<header>
+    <h1>M F MIRIAM FASHIONISTA</h1>
+    <p>ESTILO • MODA • ELEGANCIA</p>
+</header>
+
+<!-- MENU -->
+
+<nav>
+<ul>
+
+    <li><a href="#inicio">INICIO</a></li>
+
+    <li>
+        <a href="#productos">PRODUCTOS</a>
+
+        <ul>
+            <li><a href="#productos">Damas</a></li>
+            <li><a href="#productos">Caballeros</a></li>
+            <li><a href="#productos">Abrigos</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#nosotros">NOSOTROS</a></li>
+
+    <li><a href="#carrito">MI CARRITO</a></li>
+
+    <li><a href="#contacto">CONTACTO</a></li>
+
+</ul>
+</nav>
+
+<!-- =================================
+     PORTADA
+================================= -->
+
+<section class="inicio" id="inicio">
+
+    <div class="contenido-inicio">
+
+        <span>BIENVENIDOS A NUESTRA BOUTIQUE</span>
+
+        <h2>Viste con estilo, luce diferente</h2>
+
+        <p>
+            Descubre nuestra colección de ropa americana usada.
+            Encuentra prendas únicas, elegantes y a precios accesibles.
+        </p>
+
+        <a href="#productos" class="boton">
+            DESCUBRIR COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+<!-- BENEFICIOS -->
+
+<section class="beneficios">
+
+    <div class="beneficio">
+        <h3>♥ ESTILO ÚNICO</h3>
+        <p>Prendas para todos los gustos.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>✦ CALIDAD</h3>
+        <p>Ropa seleccionada cuidadosamente.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>♡ BUENOS PRECIOS</h3>
+        <p>Moda a precios accesibles.</p>
+    </div>
+
+</section>
+
+<!-- =================================
+     CATALOGO
+================================= -->
+
+<section id="productos">
+
+    <div class="titulo">
+        <span>NUESTRA COLECCIÓN</span>
+        <h2>Descubre nuestros productos</h2>
+    </div>
+
+    <div class="productos">
+
+        <div class="filtros">
+
+            <button class="activo" data-categoria="todos">
+                Todos
+            </button>
+
+            <button data-categoria="damas">
+                Damas
+            </button>
+
+            <button data-categoria="caballeros">
+                Caballeros
+            </button>
+
+            <button data-categoria="abrigos">
+                Abrigos
+            </button>
+
+        </div>
+
+        <div class="galeria">
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto" data-categoria="damas">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"
+                alt="Polera americana">
+
+                <div class="producto-info">
+
+                    <h3>Polera americana</h3>
+
+                    <p>Estilo casual y moderno.</p>
+
+                    <span class="precio">Bs 45</span>
+
+                    <button class="btn-agregar"
+                    onclick="agregarProducto(1)">
+                        🛒 AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto" data-categoria="caballeros">
+
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"
+                alt="Pantalón">
+
+                <div class="producto-info">
+
+                    <h3>Pantalón americano</h3>
+
+                    <p>Comodidad y elegancia.</p>
+
+                    <span class="precio">Bs 85</span>
+
+                    <button class="btn-agregar"
+                    onclick="agregarProducto(2)">
+                    AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto" data-categoria="abrigos">
+
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600"
+                alt="Chamarra">
+
+                <div class="producto-info">
+
+                    <h3>Chamarra americana</h3>
+
+                    <p>Diseño moderno y exclusivo.</p>
+
+                    <span class="precio">Bs 150</span>
+
+                    <button class="btn-agregar"
+                    onclick="agregarProducto(3)">
+                    AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="producto" data-categoria="damas">
+
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600"
+                alt="Moda femenina">
+
+                <div class="producto-info">
+
+                    <h3>Conjunto femenino</h3>
+
+                    <p>Prendas para lucir diferente.</p>
+
+                    <span class="precio">Bs 110</span>
+
+                    <button class="btn-agregar"
+                    onclick="agregarProducto(4)">
+                    AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- PRODUCTO 5 -->
+
+            <div class="producto" data-categoria="caballeros">
+
+                <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600"
+                alt="Ropa masculina">
+
+                <div class="producto-info">
+
+                    <h3>Ropa masculina</h3>
+
+                    <p>Estilo para cada ocasión.</p>
+
+                    <span class="precio">Bs 75</span>
+
+                    <button class="btn-agregar"
+                    onclick="agregarProducto(5)">
+                    AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- PRODUCTO 6 -->
+
+            <div class="producto" data-categoria="abrigos">
+
+                <img src="https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=600"
+                alt="Abrigo">
+
+                <div class="producto-info">
+
+                    <h3>Abrigo americano</h3>
+
+                    <p>Elegancia para días frescos.</p>
+
+                    <span class="precio">Bs 180</span>
+
+                    <button class="btn-agregar"
+                    onclick="agregarProducto(6)">
+                    AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =================================
+     CARRITO
+================================= -->
+
+<section class="carrito" id="carrito">
+
+    <div class="carrito-contenedor">
+
+        <h2>MI CARRITO DE COMPRAS</h2>
+
+        <div id="listaCarrito">
+
+            <div class="carrito-vacio">
+                <div class="icono">🛒</div>
+                <p>Tu carrito está vacío.</p>
+                <p>¡Descubre nuestras prendas!</p>
+            </div>
+
+        </div>
+
+        <div class="resumen">
+
+            <p>
+                <span>Subtotal:</span>
+                <strong id="subtotal">Bs 0.00</strong>
+            </p>
+
+            <p class="total">
+                <span>TOTAL:</span>
+                <span id="total">Bs 0.00</span>
+            </p>
+
+        </div>
+
+        <div class="acciones-carrito">
+
+            <button class="btn-vaciar"
+            onclick="vaciarCarrito()">
+                 VACIAR CARRITO
+            </button>
+
+            <button class="btn-whatsapp"
+            onclick="enviarWhatsApp()">
+                ☎ REALIZAR PEDIDO
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =================================
+     NOSOTROS
+================================= -->
+
+<section class="nosotros" id="nosotros">
+
+    <h2>Sobre M F Miriam Fashionista</h2>
+
+    <p>
+        Somos una tienda dedicada a ofrecer ropa americana usada
+        para quienes buscan variedad, estilo y precios accesibles.
+        Nuestro objetivo es brindarte prendas especiales para que
+        puedas expresar tu personalidad y vestir con confianza.
+    </p>
+
+</section>
+
+<!-- =================================
+     CONTACTO
+================================= -->
+
+<section class="contacto" id="contacto">
+
+    <div class="contacto-titulo">
+
+        <h2>¡CONTÁCTANOS!</h2>
+
+        <p>Queremos conocerte. Déjanos tus datos.</p>
+
+    </div>
+
+    <form id="miFormulario">
+
+        <div class="form-logo">
+
+            <div class="circulo">MF</div>
+
+            <h3>REGISTRO DE CLIENTES</h3>
+
+            <p>Forma parte de nuestra comunidad fashionista.</p>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="nombres">Nombres</label>
+
+            <input type="text"
+            id="nombres"
+            placeholder="Ingresa tus nombres"
+            required>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="apellidos">Apellidos</label>
+
+            <input type="text"
+            id="apellidos"
+            placeholder="Ingresa tus apellidos"
+            required>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="correo">Correo electrónico</label>
+
+            <input type="email"
+            id="correo"
+            placeholder="ejemplo@gmail.com"
+            required>
+
+        </div>
+
+        <button type="submit" class="btn-enviar">
+            ENVIAR MIS DATOS ➜
+        </button>
+
+        <p class="privacidad">
+            ♥ Gracias por visitar nuestra tienda.
+        </p>
+
+    </form>
+
+</section>
+
+<!-- =================================
+     FOOTER
+================================= -->
+
+<footer>
+
+    <h2>M F MIRIAM FASHIONISTA</h2>
+
+    <p>Moda americana para todos los estilos.</p>
+
+    <p>Gracias por preferirnos ♥</p>
+
+    <div class="creditos">
+
+        <p>© 2026 Todos los derechos reservados.</p>
+
+        <p>
+            Diseñado por: Cristhian Joel Aliaga Aruquipa
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+/* =================================
+   BASE DE DATOS DE PRODUCTOS
+================================= */
+
+const catalogo = {
+
+    1: {
+        nombre: "Polera americana",
+        precio: 45
+    },
+
+    2: {
+        nombre: "Pantalón americano",
+        precio: 85
+    },
+
+    3: {
+        nombre: "Chamarra americana",
+        precio: 150
+    },
+
+    4: {
+        nombre: "Conjunto femenino",
+        precio: 110
+    },
+
+    5: {
+        nombre: "Ropa masculina",
+        precio: 75
+    },
+
+    6: {
+        nombre: "Abrigo americano",
+        precio: 180
+    }
+
+};
+
+/* =================================
+   NUMERO DE WHATSAPP
+================================= */
+
+const WHATSAPP_NUMBER = "59177742248";
+
+/* =================================
+   CARRITO
+================================= */
+
+let carrito = [];
+
+try {
+    const guardado = localStorage.getItem("carritoMF");
+
+    if (guardado) {
+        const datos = JSON.parse(guardado);
+
+        if (Array.isArray(datos)) {
+            carrito = datos.filter(function(item) {
+                return catalogo[item.id] &&
+                    Number.isInteger(item.cantidad) &&
+                    item.cantidad > 0 &&
+                    item.cantidad <= 99;
+            });
+        }
+    }
+} catch (error) {
+    carrito = [];
+}
+
+/* GUARDAR CARRITO */
+
+function guardarCarrito() {
+
+    localStorage.setItem(
+        "carritoMF",
+        JSON.stringify(carrito)
+    );
+
+}
+
+/* =================================
+   AGREGAR PRODUCTOS
+================================= */
+
+function agregarProducto(id) {
+
+    const producto = catalogo[id];
+
+    if (!producto) {
+        return;
+    }
+
+    const existente = carrito.find(function(item) {
+        return item.id === id;
+    });
+
+    if (existente) {
+
+        if (existente.cantidad >= 99) {
+            alert("Has alcanzado el máximo de unidades.");
+            return;
+        }
+
+        existente.cantidad++;
+
+    } else {
+
+        carrito.push({
+            id: id,
+            cantidad: 1
+        });
+
+    }
+
+    guardarCarrito();
+
+    mostrarCarrito();
+
+    alert("¡Producto agregado al carrito!");
+
+}
+
+/* =================================
+   MOSTRAR CARRITO
+================================= */
+
+function mostrarCarrito() {
+
+    const lista = document.getElementById("listaCarrito");
+
+    let subtotal = 0;
+
+    lista.innerHTML = "";
+
+    if (carrito.length === 0) {
+
+        lista.innerHTML = `
+            <div class="carrito-vacio">
+                <div class="icono">🛒</div>
+                <p>Tu carrito está vacío.</p>
+                <p>¡Descubre nuestras prendas!</p>
+            </div>
+        `;
+
+    }
+
+    carrito.forEach(function(item) {
+
+        const producto = catalogo[item.id];
+
+        if (!producto) {
+            return;
+        }
+
+        const totalProducto =
+            producto.precio * item.cantidad;
+
+        subtotal += totalProducto;
+
+        const elemento = document.createElement("div");
+
+        elemento.className = "item-carrito";
+
+        elemento.innerHTML = `
+
+            <div class="item-info">
+
+                <h3>${producto.nombre}</h3>
+
+                <p>
+                    Bs ${producto.precio.toFixed(2)} por unidad
+                </p>
+
+                <strong>
+                    Total: Bs ${totalProducto.toFixed(2)}
+                </strong>
+
+            </div>
+
+            <div class="cantidad">
+
+                <button onclick="cambiarCantidad(${item.id}, -1)">
+                    -
+                </button>
+
+                <strong>${item.cantidad}</strong>
+
+                <button onclick="cambiarCantidad(${item.id}, 1)">
+                    +
+                </button>
+
+            </div>
+
+            <button class="btn-eliminar"
+            onclick="eliminarProducto(${item.id})">
+                ✕
+            </button>
+
+        `;
+
+        lista.appendChild(elemento);
+
+    });
+
+    document.getElementById("subtotal").textContent =
+        "Bs " + subtotal.toFixed(2);
+
+    document.getElementById("total").textContent =
+        "Bs " + subtotal.toFixed(2);
+
+}
+
+/* =================================
+   CAMBIAR CANTIDADES
+================================= */
+
+function cambiarCantidad(id, cambio) {
+
+    const producto = carrito.find(function(item) {
+        return item.id === id;
+    });
+
+    if (!producto) {
+        return;
+    }
+
+    producto.cantidad += cambio;
+
+    if (producto.cantidad <= 0) {
+
+        eliminarProducto(id);
+
+        return;
+
+    }
+
+    if (producto.cantidad > 99) {
+        producto.cantidad = 99;
+    }
+
+    guardarCarrito();
+
+    mostrarCarrito();
+
+}
+
+/* =================================
+   ELIMINAR PRODUCTO
+================================= */
+
+function eliminarProducto(id) {
+
+    carrito = carrito.filter(function(item) {
+        return item.id !== id;
+    });
+
+    guardarCarrito();
+
+    mostrarCarrito();
+
+}
+
+/* =================================
+   VACIAR CARRITO
+================================= */
+
+function vaciarCarrito() {
+
+    if (carrito.length === 0) {
+
+        alert("El carrito ya está vacío.");
+
+        return;
+
+    }
+
+    if (confirm("¿Deseas eliminar todos los productos?")) {
+
+        carrito = [];
+
+        guardarCarrito();
+
+        mostrarCarrito();
+
+        alert("El carrito se ha vaciado.");
+
+    }
+
+}
+
+/* =================================
+   PEDIDOS POR WHATSAPP
+================================= */
+
+function enviarWhatsApp() {
+
+    if (carrito.length === 0) {
+
+        alert("Primero debes agregar productos al carrito.");
+
+        return;
+
+    }
+
+    if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+
+        alert(
+            "Debes configurar primero el número de WhatsApp de la tienda."
+        );
+
+        return;
+
+    }
+
+    let mensaje = "¡Hola! Quiero realizar un pedido en M F MIRIAM FASHIONISTA.\n\n";
+
+    let subtotal = 0;
+
+    carrito.forEach(function(item) {
+
+        const producto = catalogo[item.id];
+
+        const totalProducto =
+            producto.precio * item.cantidad;
+
+        subtotal += totalProducto;
+
+        mensaje +=
+            producto.nombre +
+            " | Cantidad: " + item.cantidad +
+            " | Bs " + totalProducto.toFixed(2) +
+            "\n";
+
+    });
+
+    mensaje += "\nTOTAL DEL PEDIDO: Bs " +
+        subtotal.toFixed(2);
+
+    mensaje += "\n\n¡Espero su respuesta!";
+
+    const enlace =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+    window.open(enlace, "_blank");
+
+}
+
+/* =================================
+   FILTROS DE CATEGORIAS
+================================= */
+
+const botones =
+    document.querySelectorAll(".filtros button");
+
+const productos =
+    document.querySelectorAll(".producto");
+
+botones.forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+
+        const categoria =
+            this.getAttribute("data-categoria");
+
+        botones.forEach(function(b) {
+            b.classList.remove("activo");
+        });
+
+        this.classList.add("activo");
+
+        productos.forEach(function(producto) {
+
+            const tipo =
+                producto.getAttribute("data-categoria");
+
+            if (categoria === "todos" || categoria === tipo) {
+
+                producto.style.display = "block";
+
+            } else {
+
+                producto.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+/* =================================
+   FORMULARIO
+================================= */
+
+document.getElementById("miFormulario")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Datos enviados exitosamente");
+
+    this.reset();
+
+});
+
+/* =================================
+   INICIAR PAGINA
+================================= */
+
+mostrarCarrito();
+
+</script>
+
+</body>
+</html>
